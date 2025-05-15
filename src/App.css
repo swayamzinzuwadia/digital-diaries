@@ -1,0 +1,178 @@
+/* Base styles */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Utility classes */
+.full-bleed {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Animation classes */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Booking Page Styles */
+.bg-primary {
+  background-color: #0A0B1E;
+}
+
+.text-primary {
+  color: #4F46E5;
+}
+
+.bg-secondary {
+  background-color: #12133B;
+}
+
+.hover\:bg-primary\/90:hover {
+  background-color: rgba(79, 70, 229, 0.9);
+}
+
+.hover\:text-primary\/90:hover {
+  color: rgba(79, 70, 229, 0.9);
+}
+
+/* Screen Card Styles */
+.screen-card {
+  background-color: #12133B;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.screen-card-image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.screen-card:hover .screen-card-image {
+  transform: scale(1.05);
+}
+
+/* Location Card Styles */
+.location-card {
+  background-color: #12133B;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.location-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Text Colors */
+.text-light {
+  color: #ffffff;
+}
+
+.text-gray {
+  color: #888;
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #4F46E5;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: rgba(79, 70, 229, 0.9);
+}
+
+.btn-disabled {
+  background-color: #2D2D3B;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* DatePicker Custom Styles */
+.react-datepicker {
+  background-color: #12133B !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  font-family: inherit !important;
+}
+
+.react-datepicker__header {
+  background-color: #0A0B1E !important;
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day {
+  color: #fff !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #4F46E5 !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #4F46E5 !important;
+  color: #fff !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #666 !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #fff !important;
+}
+
+.react-datepicker__day--outside-month {
+  color: #666 !important;
+}

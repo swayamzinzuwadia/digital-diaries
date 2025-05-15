@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --primary: #1e40af;
+    --primary-hover: #1e3a8a;
+    --bg-dark: #030712;
+    --bg-darker: #020617;
+    --bg-light: #0f172a;
+    --border-color: #1e293b;
+}
+
+  html,
+body {
+    @apply text-neutral-100 antialiased;
+    background: var(--bg-darker);
+    height: 100%;
+  margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100%;
+  display: flex;
+    flex-direction: column;
+    background: var(--bg-darker);
+  }
+}
+
+@layer components {
+  .animated-gradient {
+    background: linear-gradient(
+      to bottom right,
+      #020617,
+      #0f172a,
+      #1e293b,
+      #0f172a,
+      #020617
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+  .section-wrapper {
+    @apply relative py-20;
+    background: linear-gradient(
+      to bottom,
+      var(--bg-darker),
+      var(--bg-light),
+      var(--bg-darker)
+    );
+  }
+
+  .section-content {
+    @apply relative;
+  }
+
+  .animated-card {
+    @apply relative overflow-hidden rounded-xl transition-all duration-300 bg-neutral-900/50 hover:bg-neutral-900/70;
+  }
+
+  .animated-card:hover {
+    @apply transform scale-[1.02] shadow-lg shadow-blue-900/10;
+  }
+
+  .nav-link {
+    @apply text-neutral-300 hover:text-blue-400 transition-all duration-300 font-medium relative;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-2.5 text-base font-medium rounded-lg 
+           text-white bg-blue-600 hover:bg-blue-700 
+           shadow-md hover:shadow-lg hover:shadow-blue-600/20 
+           transition-all duration-300 
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black;
+  }
+
+  .glass-effect {
+    @apply bg-black/80 backdrop-blur-md border-b border-neutral-800/50;
+}
+
+  .footer-link {
+    @apply text-neutral-400 hover:text-blue-400 transition-all duration-300 flex items-center gap-2 hover:translate-x-1;
+  }
+
+  .footer-heading {
+    @apply text-xl font-bold text-neutral-200 mb-6 relative inline-block;
+  }
+
+  .footer-heading::after {
+    @apply content-[''] absolute left-0 -bottom-2 w-1/2 h-0.5 bg-blue-600;
+}
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Basic smooth scroll for all browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure content is visible on mobile */
+@media (max-width: 768px) {
+  .h-screen {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+}
+
+/* Animate bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* Hide scrollbar but keep functionality */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+}
+
+/* Ensure smooth scrolling on mobile */
+@supports (-webkit-touch-callout: none) {
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+  }
+
+/* Gradient animations */
+.gradient-blur {
+  background: linear-gradient(
+    45deg,
+    rgba(37, 99, 235, 0.1),
+    rgba(37, 99, 235, 0.05),
+    transparent
+  );
+  filter: blur(100px);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Add mouse move effect script */
+@layer utilities {
+  .mouse-position-tracker {
+    position: relative;
+  }
+}
